@@ -1,0 +1,25 @@
+{
+  "nr_ss_rsrp": [
+    -125,
+    -115,
+    -105,
+    -95
+  ],
+  "wifi_rssi": [
+    -88,
+    -77,
+    -66,
+    -55
+  ],
+  "baseline_sha256": {
+    "carrier": "79b7ae6b247b148704e3d68bc7ab38e584ebddc3e362bb01e7f24d9bbd7ef8b2",
+    "wifi": "f0a2499ab125efa1e42457ecb1e2a9f1304a004709ac9ed80bcced9b6948d655",
+    "framework": "212cca08797cf0b67c9ab9d0677ba959dbb8848de16f6e8f80c71e714b150ac0"
+  },
+  "original_carrier_config_count": 249,
+  "compiled_carrier_config_count": 250,
+  "apks": {
+    "Meizu21ProSignalBarsCarrier.apk": "9a2b3a433f891866cadc645a8447e450f1e2e96dc4df4e27568ab29006d71134",
+    "zz_Meizu21ProSignalBarsWifi.apk": "aaf009c61cef2ade8c5d296df180b9534d3ba5b77bd0553c4935e41943d677de"
+  }
+}

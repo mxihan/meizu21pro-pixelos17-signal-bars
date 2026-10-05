@@ -1,0 +1,145 @@
+{
+  "device": "meizu21Pro",
+  "sdk": 37,
+  "phase": "artifact and lifecycle qualification; module may already be installed",
+  "installed": false,
+  "rebooted": false,
+  "runtime_effective_values_verified": false,
+  "checks": [
+    {
+      "check": "cache_cleaner_present",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "device_root",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "shell_syntax_customize.sh",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "shell_syntax_post-fs-data.sh",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "shell_syntax_action.sh",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "shell_syntax_uninstall.sh",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "shell_syntax_carrier-cache.sh",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "enforced_idmap_carrier",
+      "passed": true,
+      "detail": "Paths:\n    target path  : /system_ext/priv-app/CarrierConfig/CarrierConfig.apk\n    overlay path : /data/local/tmp/meizu-signal-bars-verify/fixture-3e953c03/system/product/overlay/Meizu21ProSignalBarsCarrier.apk\nConstraints:\n    None\nMapping:\n    0x7f020000 -> 0x7f010000 (xml/vendor -> xml/vendor)\n"
+    },
+    {
+      "check": "enforced_idmap_wifi",
+      "passed": true,
+      "detail": "Paths:\n    target path  : /apex/com.android.wifi/priv-app/ServiceWifiResources@CP2A.260605.016/ServiceWifiResources.apk\n    overlay path : /data/local/tmp/meizu-signal-bars-verify/fixture-3e953c03/system/vendor/overlay/zz_Meizu21ProSignalBarsWifi.apk\nConstraints:\n    None\nMapping:\n    0x7f010017 -> 0x7f010000 (array/config_wifiRssiLevelThresholds -> array/config_wifiRssiLevelThresholds)\n"
+    },
+    {
+      "check": "installer_accepts_audited_rom",
+      "passed": true,
+      "detail": "NR: -125 / -115 / -105 / -95 dBm\nWi-Fi: -88 / -77 / -66 / -55 dBm\nLTE, IMS and radio mode settings preserved.\nReboot to load the two resource overlays.\n"
+    },
+    {
+      "check": "busybox_hash_check",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "installer_rejects_wrong_sdk",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "installer_rejects_wrong_manager",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "cache_cleanup_only_default_bundle",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "matching_boot_keeps_both_apks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "nr_toggle_keeps_wifi",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "nr_toggle_restores_carrier",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "wifi_toggle_keeps_nr",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "wifi_toggle_restores_wifi",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "installer_rejects_changed_rom",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ota_guard_withholds_both_apks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "compatible_rom_restores_both",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "zip_integrity",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no_script_crlf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "checksum_file_lf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "zip_module_root",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "current_overlay_state",
+      "passed": true,
+      "detail": "Current installed overlays recorded; qualification does not activate new staged APKs."
+    }
+  ]
+}

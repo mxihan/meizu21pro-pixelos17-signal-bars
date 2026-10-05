@@ -1,0 +1,59 @@
+{
+  "recorded_at": "2026-10-05T20:29:36.103018+00:00",
+  "zip_sha256": "1c8693ef8d5d1862d45b340406423021cf3a1fb00da4f246a7aca5739d7aaf28",
+  "effective_default_app_config_by_phone": {
+    "0": {
+      "5g_nr_ssrsrp_thresholds_int_array": [
+        -125,
+        -115,
+        -105,
+        -95
+      ],
+      "lte_rsrp_thresholds_int_array": [
+        -120,
+        -118,
+        -114,
+        -105
+      ]
+    },
+    "1": {
+      "5g_nr_ssrsrp_thresholds_int_array": [
+        -125,
+        -115,
+        -105,
+        -95
+      ]
+    }
+  },
+  "wifi_thresholds": [
+    -88,
+    -77,
+    -66,
+    -55
+  ],
+  "wifi_rssi_dbm": -58,
+  "wifi_systemui_level_history": [
+    "10-06 04:25:43.815|level|**null",
+    "10-06 04:25:49.841|level|3",
+    "10-06 04:26:01.932|level|2",
+    "10-06 04:26:07.963|level|4",
+    "10-06 04:26:10.994|level|3",
+    "10-06 04:26:20.050|level|2",
+    "10-06 04:27:31.763|level|3",
+    "10-06 04:27:46.910|level|2",
+    "10-06 04:28:49.727|level|3"
+  ],
+  "primary_signal_types": [
+    "CellSignalStrengthLte",
+    "CellSignalStrengthLte"
+  ],
+  "checks": {
+    "phone_0_nr_thresholds": true,
+    "wifi_thresholds": true,
+    "wifi_corrected_apk_selected": true,
+    "carrier_apk_visible_to_process": true,
+    "wifi_systemui_reached_level_4": true,
+    "usb_stay_awake_restored": true
+  },
+  "limits": "NR effective configuration verified; current primary is LTE, so NR measured-level and strong-signal full-bar scenes are not verified. Wi-Fi SystemUI reached internal level 4 after this boot."
+}

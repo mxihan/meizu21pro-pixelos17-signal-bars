@@ -1,0 +1,6 @@
+id=meizu21pro_signal_bars
+name=Meizu 21 Pro PixelOS 17 Signal Bars
+version=1.0-nr95
+versionCode=1
+author=rin
+description=NR SS-RSRP -125/-115/-105/-95 dBm; restore Wi-Fi internal levels 0..4. For audited PixelOS 17 only. Reboot required.
