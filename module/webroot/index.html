@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'self' data:">
+  <title>信号状态</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <main>
+    <header><div><p class="eyebrow">MEIZU 21 PRO · PIXELOS 17</p><h1>信号状态</h1></div><span id="version" class="pill">读取中</span></header>
+    <div class="toolbar"><p id="updated" role="status" aria-live="polite">正在读取手机状态…</p><button id="refresh" type="button">刷新</button></div>
+    <p id="error" class="notice" role="alert" hidden></p>
+    <section id="snapshot" aria-label="当前状态">
+      <article class="card"><div class="card-head"><h2>模块状态</h2><span id="health" class="pill">等待数据</span></div><dl id="module"></dl></article>
+      <article class="card"><div class="card-head"><h2>Wi-Fi</h2><div id="wifi-bars" class="bars" aria-label="等级未知"></div></div><div id="wifi-values" class="values"></div><dl id="wifi-config"></dl><p class="hint">此 ROM 的 Wi-Fi 图标为三格；内部等级 4 对应满格。</p></article>
+      <div id="phones"></div>
+    </section>
+    <footer>页面可见时每 10 秒刷新 · 只读状态页<br>信号格按门槛显示，实际接收能力不变。</footer>
+  </main>
+</body>
+</html>

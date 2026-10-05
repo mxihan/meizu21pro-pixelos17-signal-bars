@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "version": "1.1-nr95-webui",
+    "device": "meizu21Pro",
+    "sdk": "37",
+    "disabled": "0",
+    "nr_disabled": "0",
+    "wifi_disabled": "0",
+    "baseline": "ok",
+    "carrier_visible": "true"
+  },
+  "phones": [
+    {
+      "id": 0,
+      "thresholds": [
+        -125,
+        -115,
+        -105,
+        -95
+      ],
+      "primary": "Nr",
+      "rsrp": -108,
+      "level": 2,
+      "lteRsrp": null,
+      "lteLevel": 0
+    },
+    {
+      "id": 1,
+      "thresholds": [
+        -125,
+        -115,
+        -105,
+        -95
+      ],
+      "primary": "Lte",
+      "rsrp": null,
+      "level": 0,
+      "lteRsrp": null,
+      "lteLevel": 0
+    }
+  ],
+  "errors": [],
+  "carrierVisible": true,
+  "overlays": {
+    "carrier": true,
+    "wifi": true
+  },
+  "nrEffective": true,
+  "wifiEffective": true,
+  "wifi": {
+    "thresholds": [
+      -88,
+      -77,
+      -66,
+      -55
+    ],
+    "connected": true,
+    "level": 2,
+    "visibleBars": 2,
+    "rssi": -72
+  },
+  "recordedAt": "2026-10-05T20:57:51.865Z",
+  "phoneWebUI": "Verified rendered on KernelSU 3.3.0 with actual root bridge; manual refresh tapped; no radio changes or restart",
+  "nrChecks": [
+    {
+      "slot": 0,
+      "rsrp": -108,
+      "actual": 2,
+      "expected": 2
+    }
+  ],
+  "verificationLimits": "Live page, original parser/browser checks and install verified. Subsequent review fixes were applied without additional tests at user request. Full staged module update awaits reboot."
+}

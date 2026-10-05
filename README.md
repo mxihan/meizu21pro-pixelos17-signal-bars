@@ -6,11 +6,21 @@
 
 ## 安装
 
-在 KernelSU 管理器安装 `dist/meizu21pro-pixelos17-signal-bars-v1.0-nr95.zip`，然后重启。需要启用提供文件挂载的 metamodule；当前手机使用 hybrid_mount。KernelSU 中还需为 CarrierConfig（com.android.carrierconfig）关闭“卸载模块”挂载隐藏，保持其 root 权限关闭；否则该进程无法读取系统覆盖 APK。本模块不会自动重启或切换网络。
+在 KernelSU 管理器安装 `dist/meizu21pro-pixelos17-signal-bars-v1.1-nr95-webui.zip`，然后重启。需要启用提供文件挂载的 metamodule；当前手机使用 hybrid_mount。KernelSU 中还需为 CarrierConfig（com.android.carrierconfig）关闭“卸载模块”挂载隐藏，保持其 root 权限关闭；否则该进程无法读取系统覆盖 APK。本模块不会自动重启或切换网络。
 
 模块包含两个新的静态资源覆盖，分别挂载到 `/product/overlay/Meizu21ProSignalBarsCarrier.apk` 与 `/vendor/overlay/zz_Meizu21ProSignalBarsWifi.apk`。没有替换、重新签名原来的系统 APK。
 
 运营商覆盖完整保留原有 249 段 carrier_config，最后添加一段无过滤条件的 NR 阈值。LTE、IMS、VoNR 和 SA/NSA 配置保持原值。Wi-Fi 覆盖只有一个 RSSI 分档数组，不调整漫游和选网评分。
+
+## 状态页面（v1.1）
+
+安装新版后，从 KernelSU → 模块 → 本模块的“打开”进入 WebUI。更新待重启时，管理器可能暂不显示“打开”；重启完成更新即可。页面显示 ROM 基准、两项资源覆盖、CarrierConfig 进程是否能读取 APK、每个卡槽的 NR 阈值及主信号类型、实时 RSRP/RSSI、系统实际等级与门槛推算值。
+
+支持手动刷新；页面可见时每 10 秒刷新，离开页面暂停查询。数据来自 Android dumpsys/overlay 查询，非原子采样；推算仅使用 RSRP/RSSI，实际等级可能受其他参数、迟滞及采样时差影响。缺失或无效测量值显示“—”，查询失败时明确标记过时数据。没有缓存清理、修改阈值或切换网络按钮。
+
+页面随模块离线打包，不访问外部资源；需要在 KernelSU 内打开才能读取实时状态。JavaScript 接口使用上游 `kernelsu` 3.0.2，来源及 Apache-2.0 许可见 `module/webroot/vendor/`。
+
+![状态页预览（测试数据）](verification/webui-light.png)
 
 ## 核对生效
 
@@ -86,4 +96,10 @@ Wi-Fi 原覆盖的静态优先级已经是 999（允许的最高值）。AOSP �
 
 ## 设备验证脚本
 
-`python verify_runtime.py` 读取实际配置与 SystemUI 等级日志，并写入 `verification/`；不修改设备设置。`python verify_device.py` 执行完整的 27 项安装与生命周期资格检查，需要已构建的 APK、适配 ROM 和 KernelSU root。后者会在手机 `/data/local/tmp` 创建测试目录，并清理可重建的默认 CarrierConfig 缓存（保留持久覆盖）；不安装模块、不重启。连接多台设备时使用 `ANDROID_SERIAL` 环境变量选择目标。完整编译测试需要先准备上述 `inputs/` 和工具。
+`python verify_runtime.py` 读取实际配置与 SystemUI 等级日志，并写入 `verification/`；不修改设备设置。`python verify_device.py` 执行完整的 28 项安装与生命周期资格检查，需要已构建的 APK、适配 ROM 和 KernelSU root。后者会在手机 `/data/local/tmp` 创建测试目录，并清理可重建的默认 CarrierConfig 缓存（保留持久覆盖）；不安装模块、不重启。连接多台设备时使用 `ANDROID_SERIAL` 环境变量选择目标。完整编译测试需要先准备上述 `inputs/` 和工具。
+
+WebUI 的解析与等级边界测试：`node --test tests/test_status.mjs`。浏览器检查需安装 Playwright 及 Chromium 后执行 `node tests/browser_check.cjs`，会验证移动端布局、官方 SDK 回调、手动/自动刷新、失败恢复及无桥接环境；桥接输出使用公开测试样例，实机结果另见 `verification/webui-verification.json`。
+
+只增加页面、保留现有已签名覆盖 APK 时，可运行 `python build.py --package-only`。它不会重新签名 APK，也不要求本地密钥或 ROM 输入。完整重建仍使用 `python build.py`。
+
+v1.1 已在 KernelSU 3.3.0 内显示实际手机数据；采样 NR SS-RSRP −108 dBm、系统等级 2，与新门槛相符。原页面检查通过后，审查补充了失败查询丢弃、无 SIM 配置隔离、Wi-Fi 无效 RSSI、覆盖状态与多卡汇总、回调超时处理；按用户要求未继续追加测试。

@@ -7,3 +7,7 @@ src/
 dist/*
 !dist/meizu21pro-pixelos17-signal-bars-v1.0-nr95.zip
 !dist/build-manifest.json
+!dist/meizu21pro-pixelos17-signal-bars-v1.1-nr95-webui.zip
+verification/*.png
+!verification/webui-light.png
+!verification/webui-dark.png

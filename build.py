@@ -220,7 +220,19 @@ def build():
         +hashes['wifi']+'  /vendor/overlay/WifiOverlayMeizu21Pro.apk\n').encode('utf-8'))
     (dist/'build-manifest.json').write_text(json.dumps(manifest, indent=2)+'\n', encoding='utf-8')
     (module/'build-manifest.json').write_bytes((dist/'build-manifest.json').read_bytes())
-    package = dist/'meizu21pro-pixelos17-signal-bars-v1.0-nr95.zip'
+    package = package_module(module, dist)
+    print(json.dumps(manifest, indent=2))
+    print('ZIP:', package, 'SHA256:', digest(package))
+
+
+def package_module(module: Path, dist: Path) -> Path:
+    """Package existing signed overlays without rebuilding or changing signatures."""
+    version = next(line.split('=', 1)[1] for line in (module/'module.prop').read_text(encoding='utf-8').splitlines()
+                   if line.startswith('version='))
+    if not version or any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-' for c in version):
+        raise ValueError('invalid module version for package filename')
+    dist.mkdir(exist_ok=True)
+    package = dist/f'meizu21pro-pixelos17-signal-bars-v{version}.zip'
     with zipfile.ZipFile(package, 'w', zipfile.ZIP_DEFLATED) as z:
         for path in sorted(module.rglob('*')):
             if path.is_file():
@@ -228,15 +240,18 @@ def build():
                 info = zipfile.ZipInfo(name)
                 info.external_attr = ((0o100755 if name.endswith('.sh') else 0o100644) << 16)
                 z.writestr(info, path.read_bytes(), compress_type=zipfile.ZIP_DEFLATED)
-    print(json.dumps(manifest, indent=2))
-    print('ZIP:', package, 'SHA256:', digest(package))
+    return package
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--decode-only', action='store_true')
+    parser.add_argument('--package-only', action='store_true', help='Package existing signed APKs and WebUI without rebuilding overlays')
     args = parser.parse_args()
-    if args.decode_only:
+    if args.package_only:
+        package = package_module(ROOT/'module', ROOT/'dist')
+        print('ZIP:', package, 'SHA256:', digest(package))
+    elif args.decode_only:
         with zipfile.ZipFile(BASE/'CarrierConfigOverlayMeizu21Pro.apk') as z:
             root = decode_xml(z.read('res/xml/vendor.xml'))
         (BASE/'vendor-original.xml').write_bytes(ET.tostring(root, encoding='utf-8', xml_declaration=True))

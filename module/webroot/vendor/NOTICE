@@ -1,0 +1,5 @@
+KernelSU JavaScript WebUI library, npm kernelsu 3.0.2
+Author: weishu
+Upstream: https://github.com/tiann/KernelSU/tree/main/js
+License: Apache-2.0 (as declared in the upstream npm package)
+The upstream index.js is shipped unchanged as kernelsu.js.

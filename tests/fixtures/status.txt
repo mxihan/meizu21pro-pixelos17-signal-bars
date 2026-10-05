@@ -1,0 +1,37 @@
+@@meta
+version=1.1-nr95-webui
+disabled=0
+nr_disabled=0
+wifi_disabled=0
+baseline=ok
+carrier_visible=true
+@@overlays
+[x] io.github.rin.meizu21pro.signalbars.carrier
+[x] io.github.rin.meizu21pro.signalbars.wifi
+@@wifi_thresholds
+-88
+-77
+-66
+-55
+@@carrier
+Default Values from CarrierConfigManager :
+  5g_nr_ssrsrp_thresholds_int_array = [-110, -90, -80, -65]
+Phone Id = 0
+ mConfigFromDefaultApp :
+  5g_nr_ssrsrp_thresholds_int_array = [-125, -115, -105, -95]
+ mConfigFromCarrierApp : null
+ mPersistentOverrideConfigs : null
+ mOverrideConfigs : null
+Phone Id = 1
+ mConfigFromDefaultApp : null
+@@telephony
+Phone Id=0
+mSignalStrength=SignalStrength:{mLte=CellSignalStrengthLte: rsrp=-101 level=4,mNr=CellSignalStrengthNr:{ ssRsrp = -110 ssRsrq = -13 ssSinr = 5 level = 2 },primary=CellSignalStrengthNr}
+Phone Id=1
+mSignalStrength=SignalStrength:{mNr=CellSignalStrengthNr:{ ssRsrp = 2147483647 level = 0 },primary=CellSignalStrengthLte}
+@@wifi
+RSSI: -72
+Supplicant state: COMPLETED
+@@wifi_ui
+10-06 04:25:49.841|level|4
+10-06 04:26:20.050|level|2

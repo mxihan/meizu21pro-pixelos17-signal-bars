@@ -47,7 +47,7 @@ tables = shell("dumpsys activity service com.android.systemui/.SystemUIService t
 wifi_table = re.search(r"StateChangeTableSection START: WifiTableLog(.*?)StateChangeTableSection END: WifiTableLog", tables, re.S)
 level_rows = [line.strip() for line in wifi_table.group(1).splitlines() if "|level|" in line] if wifi_table else []
 stay_awake = shell("settings get global stay_on_while_plugged_in", root=False).strip()
-zip_path = ROOT / "dist/meizu21pro-pixelos17-signal-bars-v1.0-nr95.zip"
+zip_path = ROOT / "dist/meizu21pro-pixelos17-signal-bars-v1.1-nr95-webui.zip"
 checks = {
     "phone_0_nr_thresholds": phones.get("0", {}).get("5g_nr_ssrsrp_thresholds_int_array") == [-125, -115, -105, -95],
     "wifi_thresholds": wifi_thresholds == [-88, -77, -66, -55],

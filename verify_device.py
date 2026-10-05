@@ -39,7 +39,7 @@ def main():
     require('device_root', 'uid=0(root)' in shell('id').stdout)
     adb('shell', 'mkdir', '-p', REMOTE)
     adb('push', str(ROOT/'module'), FIXTURE)
-    for filename in ['customize.sh', 'post-fs-data.sh', 'action.sh', 'uninstall.sh', 'carrier-cache.sh']:
+    for filename in ['customize.sh', 'post-fs-data.sh', 'action.sh', 'uninstall.sh', 'carrier-cache.sh', 'status.sh']:
         require('shell_syntax_'+filename, shell(f'sh -n {FIXTURE}/{filename}').returncode == 0)
 
     carrier = FIXTURE+'/system/product/overlay/Meizu21ProSignalBarsCarrier.apk'
@@ -120,7 +120,7 @@ set_perm() { :; }
     require('compatible_rom_restores_both', exists(carrier) and exists(wifi)
             and not exists(FIXTURE+'/compatibility-error.txt'))
 
-    package = ROOT/'dist/meizu21pro-pixelos17-signal-bars-v1.0-nr95.zip'
+    package = ROOT/'dist/meizu21pro-pixelos17-signal-bars-v1.1-nr95-webui.zip'
     with zipfile.ZipFile(package) as z:
         require('zip_integrity', z.testzip() is None)
         require('no_script_crlf', all(b'\r' not in z.read(n) for n in z.namelist() if n.endswith('.sh')))

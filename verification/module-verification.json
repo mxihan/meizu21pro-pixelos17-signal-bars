@@ -42,14 +42,19 @@
       "detail": ""
     },
     {
+      "check": "shell_syntax_status.sh",
+      "passed": true,
+      "detail": ""
+    },
+    {
       "check": "enforced_idmap_carrier",
       "passed": true,
-      "detail": "Paths:\n    target path  : /system_ext/priv-app/CarrierConfig/CarrierConfig.apk\n    overlay path : /data/local/tmp/meizu-signal-bars-verify/fixture-3e953c03/system/product/overlay/Meizu21ProSignalBarsCarrier.apk\nConstraints:\n    None\nMapping:\n    0x7f020000 -> 0x7f010000 (xml/vendor -> xml/vendor)\n"
+      "detail": "Paths:\n    target path  : /system_ext/priv-app/CarrierConfig/CarrierConfig.apk\n    overlay path : /data/local/tmp/meizu-signal-bars-verify/fixture-9a09b90c/system/product/overlay/Meizu21ProSignalBarsCarrier.apk\nConstraints:\n    None\nMapping:\n    0x7f020000 -> 0x7f010000 (xml/vendor -> xml/vendor)\n"
     },
     {
       "check": "enforced_idmap_wifi",
       "passed": true,
-      "detail": "Paths:\n    target path  : /apex/com.android.wifi/priv-app/ServiceWifiResources@CP2A.260605.016/ServiceWifiResources.apk\n    overlay path : /data/local/tmp/meizu-signal-bars-verify/fixture-3e953c03/system/vendor/overlay/zz_Meizu21ProSignalBarsWifi.apk\nConstraints:\n    None\nMapping:\n    0x7f010017 -> 0x7f010000 (array/config_wifiRssiLevelThresholds -> array/config_wifiRssiLevelThresholds)\n"
+      "detail": "Paths:\n    target path  : /apex/com.android.wifi/priv-app/ServiceWifiResources@CP2A.260605.016/ServiceWifiResources.apk\n    overlay path : /data/local/tmp/meizu-signal-bars-verify/fixture-9a09b90c/system/vendor/overlay/zz_Meizu21ProSignalBarsWifi.apk\nConstraints:\n    None\nMapping:\n    0x7f010017 -> 0x7f010000 (array/config_wifiRssiLevelThresholds -> array/config_wifiRssiLevelThresholds)\n"
     },
     {
       "check": "installer_accepts_audited_rom",
